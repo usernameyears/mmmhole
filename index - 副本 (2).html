@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026马年新春大吉 - 喜迎新春</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d, #ff6b6b);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🧧</text></svg>'), auto;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #ff3838;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff3838;
+            text-shadow: 2px 2px 4px rgba(255, 217, 61, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #ffd93d;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-item {
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #ff3838;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 56, 56, 0.3);
+        }
+
+        .hero-section {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #ffd93d, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShine 3s linear infinite, float 3s ease-in-out infinite;
+        }
+
+        @keyframes textShine {
+            to { background-position: 200% center; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero-subtitle {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .countdown {
+            font-size: 48px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            border-radius: 50px;
+            color: #ff3838;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            border: 3px solid #ffd93d;
+        }
+
+        .content-section {
+            max-width: 1400px;
+            margin: 50px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            color: #fff;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: #ffd93d;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(255, 56, 56, 0.2);
+            border-color: #ff3838;
+        }
+
+        .card-icon {
+            font-size: 50px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #ff3838;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .card-content {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .blessing-scroll {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 40px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .blessing-text {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+            font-size: 20px;
+            color: #ff3838;
+            font-weight: bold;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .lantern {
+            position: absolute;
+            width: 80px;
+            height: 120px;
+            background: #ff3838;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 56, 56, 0.5);
+            animation: swing 3s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 15px;
+            background: #ffd93d;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .lantern::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 20px;
+            background: #ffd93d;
+            border-radius: 0 0 10px 10px;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .lantern-left { top: 100px; left: 50px; }
+        .lantern-right { top: 100px; right: 50px; }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-text {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .red-envelope {
+            position: absolute;
+            font-size: 30px;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 42px; }
+            .hero-subtitle { font-size: 24px;}{color:blue }
+                        .countdown { font-size: 32px; padding: 15px 25px; }
+            .section-title { font-size: 32px; }
+            .lantern { width: 50px; height: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="fireworks-container" id="fireworks"></div>
+    <div class="lantern lantern-left"></div>
+    <div class="lantern lantern-right"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🧨 <span>新春</span>大吉 🧧</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">新春祝福</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">年俗文化</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <h1 class="hero-title">2026 马年大吉 · 新春快乐</h1>
+        <h2 class="hero-subtitle">唐山市第十六中学七年二班全体同学&nbsp祝大家新年快乐！</h2>
+        <h2 class="hero-the-third-title">指导教师:宋健</h2>
+        <div class="countdown" id="countdown">距离新春还有：00天00时00分00秒</div>
+    </section>
+
+    <div class="content-section">
+        <div class="blessing-scroll">
+            <div class="blessing-text">
+                🧨此致广大人民：一帆风顺 · 双龙戏珠 · 三羊开泰 · 四季平安 · 五福临门 · 六六大顺 · 七星高照 · 八方来财 · 九九归一 · 十全十美！🧨
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">新春祝福 · 吉祥如意</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><img src="https://pic4.zhimg.com/v2-b1b36bc8b85ee644569a18e2fb5dae8f_b.jpg"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">财源广进</h3>
+                <p class="card-content">新春佳节，财源滚滚，生意兴隆通四海，财源茂盛达三江，金银财宝装满仓！</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://img95.699pic.com/photo/40007/5529.jpg_wh860.jpg"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">阖家幸福</h3>
+                <p class="card-content">团圆美满，幸福安康，家庭和睦，其乐融融，岁岁平安，年年如意！</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://img95.699pic.com/photo/60050/1698.jpg_wh860.jpg"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">马到成功</h3>
+                <p class="card-content">马年行大运，事业蒸蒸日上，万事顺顺利利，前程似锦，步步高升！</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.yCAa0InfpBC_O7Ik171DzgHaHl?rs=1&pid=ImgDetMain&o=7&rm=3"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">吉祥如意</h3>
+                <p class="card-content">福星高照，好运连连，万事顺心，吉祥如意，四季平安，五福临门！</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">年俗文化 · 传统传承</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><img src="https://img95.699pic.com/photo/50766/0644.jpg_wh860.jpg"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">贴春联</h3>
+                <p class="card-content">贴春联源于古代“桃符”避邪习俗，古人挂桃木板驱鬼，后渐以红纸书联替代，演变为春节贴春联的祈福传统。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://ts1.tc.mm.bing.net/th/id/R-C.a9bd8f472137b54984ae535175fe39bc?rik=61AIeusKWUyTvA&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd20230111s%2f190%2fw600h390%2f20230111%2ff493-b13b4307494428270c83cd365b2d2c8f.jpg&ehk=pneN0G1PzTmPusY%2biv9rYloCx%2f8Hf2vr9x2dixZRSLc%3d&risl=&pid=ImgRaw&r=0"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">年夜饭</h3>
+                <p class="card-content">年夜饭源于上古岁末祭祀，人们拜神祭祖后阖家聚餐，辞旧迎新，逐渐演变为春节阖家团圆的团圆宴。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://img95.699pic.com/element/40084/9732.png_860.png"
+                 style="width:100px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">放鞭炮</h3>
+                <p class="card-content">放鞭炮源于上古“爆竹驱年兽”的传说，古人烧竹爆响驱邪避凶，后以火药鞭炮替代，成春节庆新春、驱邪祟的习俗。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://img95.699pic.com/element/40070/1550.png_860.png"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">发红包</h3>
+                <p class="card-content">压岁钱源于古代“压祟钱”，长辈用红线穿钱赐晚辈，压邪避祟保平安，后演变为春节表达关爱与祝福的习俗。</p>
+            </div>
+        </div>
+    </div>
+ <div class="content-section">
+     <h2 class="section-title">唐山特色 · 年俗活动</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><img src="https://ts1.tc.mm.bing.net/th/id/R-C.a23c758d5f6d1389698847806437d72c?rik=GeUzDZ4iU5WNGg&riu=http%3a%2f%2fk.sinaimg.cn%2fn%2fsinakd20220910ac%2f534%2fw800h534%2f20220910%2f1a1f-4cf3e0f0173abb3a2ddbf3a1cc1dc8a1.jpg%2fw700d1q75cms.jpg&ehk=1o88x9ScUZobM1wlw0pfJQK%2bGKQxOFMrV%2bos8XMjCQ0%3d&risl=&pid=ImgRaw&r=0"
+                 style="width:170px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">腊月初八，熬腊八粥</h3>
+                <p class="card-content">腊月初八，唐山家家户户熬腊八粥。米豆红枣慢火细炖，香气满院，老少围坐喝粥，暖意融融，祈福来年平安顺遂。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://bpic.588ku.com/illus_water_img/21/11/09/ec2cc7785e4bdca30c61baa046eaf3de.jpg"
+                 style="width:120px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">腊月廿三，祭祀灶王</h3>
+                <p class="card-content">腊月二十三，唐山人家祭灶王，摆糖瓜、供品，焚香祈福，盼灶君上天言好事，阖家平安、五谷丰登。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://ts4.tc.mm.bing.net/th/id/OIP-C.wxmZwV01pfLR1orfjXZSPwHaE_?rs=1&pid=ImgDetMain&o=7&rm=3"
+                 style="width:170px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">腊月廿八，张联贴花</h3>
+                <p class="card-content">腊月廿八，唐山家家户户贴春联、粘窗花，红联映门、彩花满窗，笔墨含福，满院喜庆，年味浓浓迎新春。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.456B7EMpWlq8m0MvsO5JuAHaE7?rs=1&pid=ImgDetMain&o=7&rm=3"
+                 style="width:170px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">正月初一，走街串巷</h3>
+                <p class="card-content">春节将至，唐山街头热闹非凡，男女老少走街串巷，置办年货、笑语连连，街巷间满是年味与烟火气。</p>
+            </div>
+        </div>
+    </div>
+<div class="content-section">
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><img src="https://ts1.tc.mm.bing.net/th/id/R-C.bb7889ddd0904303b2fe40ca02371bb9?rik=hmrYLq6Kc6k8Jw&riu=http%3a%2f%2fvip-public.people.com.cn%2fphoto%2f2025%2f1%2f30%2f5de0c7f03b294f7d9afbc21efdf21558uaPX_m.jpg&ehk=ZDEkWH3sctf%2bbnVVB%2bqMfP9dcPbeJfwaSxRryHTc2EI%3d&risl=&pid=ImgRaw&r=0"
+                 style="width:170px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">正月初二，逛会望灯</h3>
+                <p class="card-content">初二之夜，唐山灯会流光溢彩，花灯璀璨，游人如织，欢声笑语此起彼伏，处处洋溢着喜庆祥和的浓浓年味。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://img95.699pic.com/photo/40096/4367.jpg_wh860.jpg"
+                 style="width:170px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">正月初三，亲友访串</h3>
+                <p class="card-content">正月初三，唐山街坊邻里走亲访友，携礼拜年、笑语寒暄，阖家团圆暖意正浓，街巷处处洋溢着喜庆祥和的年味儿。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://ts1.tc.mm.bing.net/th/id/R-C.e04bcb510f479d7361b1a7bce297fb0c?rik=FvDYg8aXTjPZiA&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd20110%2f762%2fw1000h562%2f20230919%2f2e7e-63c465cfe26ea229ee17f7e10907d969.jpg&ehk=x0wzMoq458GVSDSYdGbbEWNJDDVwVZ3N7iuyQNsEW6E%3d&risl=&pid=ImgRaw&r=0"
+                 style="width:170px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">正月初五，送穷破五</h3>
+                <p class="card-content">正月初五破五，唐山人家包饺子、放鞭炮，迎财神、送穷气，户户喜气洋洋，祈愿新岁财源广、万事顺意、平安兴旺。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><img src="https://pic.cmc.hebtv.com/0/0d91d6cfb98f5b206ac1e752757fc5a9/2023/01/30/54e7a06e8fc849a48f0ec7a4fc71b4ec.jpg"
+                 style="width:170px;display:block;margin:0 auto;"></div>
+                <h3 class="card-title">正月十五，花灯庆五</h3>
+                <p class="card-content">元宵佳节，唐山街头花灯璀璨，游人如织，赏灯猜谜、品元宵、看秧歌，满城欢声笑语，年味浓郁、喜庆祥和。</p>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <p class="footer-text">🧨 2026马年新春大吉 · 恭祝全国人民新年快乐🧨</p>
+        <p class="copyright"> 制作人：李禹漠，韩思源，杨嘉圣</p>
+    </footer>
+
+    <script>
+        // 新春倒计时（2026年2月17日）
+        function updateCountdown() {
+            const springFestival = new Date('2026-02-17 00:00:00');
+            const now = new Date();
+            const diff = springFestival - now;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = '🎉 新春快乐！马年大吉！🎉';
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('countdown').innerHTML = 
+                `距离新春还有：${days}天${hours.toString().padStart(2, '0')}时${minutes.toString().padStart(2, '0')}分${seconds.toString().padStart(2, '0')}秒`;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 红包雨动画
+        function createRedEnvelope() {
+            const envelope = document.createElement('div');
+            envelope.className = 'red-envelope';
+            envelope.innerHTML = '🧧';
+            envelope.style.left = Math.random() * 100 + 'vw';
+            envelope.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            envelope.style.fontSize = Math.random() * 20 + 20 + 'px';
+            document.body.appendChild(envelope);
+            
+            setTimeout(() => envelope.remove(), 5000);
+        }
+        
+        setInterval(createRedEnvelope, 300);
+
+        // 点击屏幕生成烟花
+        document.addEventListener('click', (e) => {
+            const colors = ['#ff3838', '#ffd93d', '#ff6b6b', '#fff', '#ff9f1c'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = '8px';
+                particle.style.height = '8px';
+                particle.style.background = color;
+                particle.style.borderRadius = '50%';
+                particle.style.left = e.clientX + 'px';
+                particle.style.top = e.clientY + 'px';
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '5';
+                
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 2;
+                const vx = Math.cos(angle) * speed;
+                const vy = Math.sin(angle) * speed;
+                
+                let x = e.clientX;
+                let y = e.clientY;
+                let opacity = 1;
+                
+                const animate = () => {
+                    x += vx;
+                    y += vy + 0.1;
+                    opacity -= 0.02;
+                    
+                    if (opacity <= 0) {
+                        particle.remove();
+                        return;
+                    }
+                    
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.opacity = opacity;
+                    requestAnimationFrame(animate);
+                };
+                
+                document.body.appendChild(particle);
+                animate();
+            }
+        });
+    </script>
+</body>
+</html>
